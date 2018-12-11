@@ -49,7 +49,7 @@ firebase.auth().onAuthStateChanged((user) => {
         store.dispatch(logout());
         renderApp();
         if (history.location.pathname === '/') {
-            history.push('/');
+            history.push('/home');
         } else if (history.location.pathname === '/about') {
             history.push('/home');
         } else {
