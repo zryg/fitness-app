@@ -1,0 +1,43 @@
+//compile this using the following CLI command: sass custom.scss > custom.css
+
+//https://getbootstrap.com/docs/4.0/getting-started/theming/
+
+//Custom variables
+$primary-blue: #1672b5;
+$cappex-blue: #238184;
+
+//Custom variable overrides are defined ABOVE the import
+$theme-colors: (
+  "primary": $primary-blue,
+  "secondary": $cappex-blue,
+);
+
+//For right now, we'll include ALL of bootstrap, but if you have time try to reduce this to only the parts that are needed
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+//Defining custom CSS AFTER so it overrides
+
+.btn {
+  padding: 0.75rem 0.75rem;
+  font-weight: 600;
+}
+
+.navbar {
+  padding: 1.5rem 1rem;
+
+  #navImage {
+    width: 150px;
+  }
+
+  .nav-item {
+    font-size: 16px;
+  }
+}
+
+html, #homePageWrapper {
+  background: url(/images/bg.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}

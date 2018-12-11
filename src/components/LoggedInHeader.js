@@ -1,9 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {startLogin} from '../actions/auth';
+import {startLogout} from '../actions/auth';
 import logo from "../../public/images/logo.png";
 
-export const Header = ({startLogin}) => (
+export const LoggedInHeader = ({startLogout}) => (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <a className="navbar-brand" href="#">
             <img id="navImage" src={logo} alt="logo"/>
@@ -19,10 +19,13 @@ export const Header = ({startLogin}) => (
                     <a className="nav-link" href="/home">Home <span className="sr-only">(current)</span></a>
                 </li>
                 <li className="nav-item ml-4">
-                    <a className="nav-link" href="/home">About</a>
+                    <a className="nav-link" href="/dashboard">About</a>
                 </li>
                 <li className="nav-item ml-4">
-                    <button className="button" onClick={startLogin}>Log In</button>
+                    <a className="nav-link" href="/dashboard">My Programs</a>
+                </li>
+                <li className="nav-item ml-4">
+                    <button className="button" onClick={startLogout}>Log Out</button>
                 </li>
             </ul>
         </div>
@@ -30,7 +33,7 @@ export const Header = ({startLogin}) => (
 );
 
 const mapDispatchToProps = (dispatch) => ({
-    startLogin: () => dispatch(startLogin())
+    startLogout: () => dispatch(startLogout())
 });
 
-export default connect(undefined, mapDispatchToProps)(Header);
+export default connect(undefined, mapDispatchToProps)(LoggedInHeader);

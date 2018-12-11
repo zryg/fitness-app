@@ -43,7 +43,14 @@ module.exports = (env) => {
                         }
                     ]
                 })
-            }]
+            },
+                {
+                    test: /\.(gif|jpe?g|png)$/,
+                    loader: 'url-loader?limit=100000000',
+                    query: {
+                        limit: 100000000
+                    }
+                }]
         },
         plugins: [
             CSSExtract,
